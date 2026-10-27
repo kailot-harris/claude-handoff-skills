@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "subagent-brief/result.v1.json",
+  "title": "Subagent result v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "run_id", "item_id", "status", "summary", "criteria", "evidence", "blocked_reason", "needed_action", "changes", "data"],
+  "properties": {
+    "schema_version": {"type": "string", "enum": ["1.0"]},
+    "run_id": {"type": "string", "minLength": 1},
+    "item_id": {"type": ["string", "null"]},
+    "status": {"type": "string", "enum": ["success", "failed", "blocked", "could_not_verify"]},
+    "summary": {"type": "string", "maxLength": 500},
+    "criteria": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "text", "met", "evidence_refs"],
+        "properties": {
+          "id": {"type": "integer"},
+          "text": {"type": "string", "minLength": 1},
+          "met": {"type": "string", "enum": ["yes", "no", "unverified"]},
+          "evidence_refs": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "type", "ref", "excerpt"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "type": {"type": "string", "enum": ["file_ref", "command", "test_output", "diff", "other"]},
+          "ref": {"type": "string", "minLength": 1},
+          "excerpt": {"type": "string", "maxLength": 2048},
+          "full_output_path": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "blocked_reason": {"type": ["string", "null"]},
+    "needed_action": {"type": ["string", "null"]},
+    "changes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["worktree", "files_changed"],
+      "properties": {
+        "worktree": {"type": ["string", "null"]},
+        "files_changed": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "data": {"type": "object"}
+  }
+}

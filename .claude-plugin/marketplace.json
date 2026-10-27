@@ -1,0 +1,28 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "claude-handoff-skills",
+  "description": "Skills for long-running, multi-session agent work: writing and trimming handoff docs, and briefing subagents rigorously enough to verify what comes back.",
+  "owner": {
+    "name": "kailot-harris"
+  },
+  "plugins": [
+    {
+      "name": "handoff-docs",
+      "description": "Write and maintain a HANDOFF.md so the next agent or human can resume a multi-session project with zero prior context. Includes write-handoff (produce and update the doc from real repo state, not memory) and trim-handoff (archive closed-work sections once the doc outgrows itself). Pure markdown instructions, no dependencies.",
+      "author": {
+        "name": "kailot-harris"
+      },
+      "category": "productivity",
+      "source": "./plugins/handoff-docs"
+    },
+    {
+      "name": "subagent-brief",
+      "description": "Write rigorous, repeatable briefs for subagents and verify what comes back. Enforces a fixed brief template, explicit risk-tier grants, worktree isolation for writers, a strict JSON result schema with evidence, secrets scanning, pilot runs with early stop for batches, and an auditable run log. Requires Python 3.8+ and git; standard library only.",
+      "author": {
+        "name": "kailot-harris"
+      },
+      "category": "workflow",
+      "source": "./plugins/subagent-brief"
+    }
+  ]
+}

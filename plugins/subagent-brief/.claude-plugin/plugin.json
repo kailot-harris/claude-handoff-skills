@@ -1,0 +1,9 @@
+{
+  "name": "subagent-brief",
+  "description": "Write rigorous, repeatable briefs for subagents and verify what comes back. Enforces a fixed brief template, explicit risk-tier grants, worktree isolation for writers, a strict JSON result schema with evidence, secrets scanning, pilot runs with early stop for batches, and an auditable run log. Requires Python 3.8+ and git; standard library only, no pip installs.",
+  "version": "1.0.0",
+  "author": {
+    "name": "kailot-harris"
+  },
+  "keywords": ["subagent", "delegation", "orchestration", "verification", "batch"]
+}

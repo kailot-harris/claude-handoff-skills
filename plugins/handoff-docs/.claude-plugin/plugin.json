@@ -1,0 +1,9 @@
+{
+  "name": "handoff-docs",
+  "description": "Write and maintain a HANDOFF.md so the next agent or human can resume a multi-session project with zero prior context. write-handoff produces and updates the doc from real repo state rather than session memory; trim-handoff archives closed-work sections once the doc outgrows itself. Markdown instructions only — no scripts, no dependencies.",
+  "version": "1.0.0",
+  "author": {
+    "name": "kailot-harris"
+  },
+  "keywords": ["handoff", "documentation", "multi-agent", "context", "session-notes"]
+}
