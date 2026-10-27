@@ -1,3 +1,6 @@
 __pycache__/
 *.pyc
 .subagent-runs/
+
+# local working notes, not published
+docs/
